@@ -43,17 +43,18 @@
     
     <div id="content"><div id='filecontents'><h1>http2code</h1>
 
-<p>Author:      Patrick Hof <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#111;&#x3a;&#99;&#x6f;&#x75;&#x72;&#x74;&#x73;&#64;&#x6f;&#x66;&#102;&#x65;&#110;&#x73;&#105;&#118;&#x65;&#x74;&#104;&#105;&#x6e;&#107;&#105;&#x6e;&#103;&#46;&#111;&#x72;&#x67;">&#99;&#x6f;&#117;&#114;&#x74;&#x73;&#64;&#111;&#102;&#102;&#x65;&#x6e;&#x73;&#105;&#x76;&#101;&#116;&#104;&#x69;&#110;&#107;&#x69;&#x6e;&#x67;&#46;&#111;&#x72;&#103;</a><br/>
+<p>Author:      Patrick Hof <a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#x6f;&#58;&#99;&#x6f;&#x75;&#114;&#x74;&#115;&#x40;&#111;&#x66;&#x66;&#x65;&#110;&#x73;&#105;&#x76;&#101;&#x74;&#104;&#x69;&#x6e;&#107;&#x69;&#110;&#103;&#46;&#x6f;&#x72;&#x67;">&#99;&#111;&#117;&#x72;&#x74;&#x73;&#x40;&#111;&#x66;&#x66;&#x65;&#110;&#115;&#105;&#118;&#x65;&#116;&#104;&#x69;&#x6e;&#107;&#x69;&#x6e;&#103;&#46;&#x6f;&#114;&#x67;</a><br/>
 License:     <a href="http://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0 1.0 Universal License</a></p>
 
 <p>Download:    git clone git@github.com:courts/http2code.git<br/>
 YARD docs:   <a href="http://courts.github.com/http2code">http://courts.github.com/http2code</a></p>
 
 <p>http2code is simple templating system for translating a raw HTTP GET or POST
-request into source code for replaying that request. It basically returns the
-parsed request as JSON data and optionally gives you the possibility to
-automatically add this data to a predefined template, which will then be output
-to stdout. See the existing templates for further information.</p>
+request into source code for replaying that request. It basically reads the
+request from stdin and returns the parsed request as JSON data. It optionally
+gives you the possibility to automatically add this data to a predefined
+template, which will then be output to stdout. See the existing templates for
+further information.</p>
 
 <h2>Command Line Usage</h2>
 
@@ -71,6 +72,13 @@ ruby/typhoeus
 If no template is given, only the JSON data of the parsed HTTP request will be output.
 </pre>
 
+<h2>Examples</h2>
+
+<p>With an HTTP GET or POST request saved in req.txt:</p>
+
+<pre class="code">http2code -n -t ruby/typhoeus &lt; req.txt
+</pre>
+
 <h2>RubyGems</h2>
 
 <p>A gemspec file is included, so you can build and install http2code as a gem with:</p>
@@ -80,7 +88,7 @@ If no template is given, only the JSON data of the parsed HTTP request will be o
 </pre></div></div>
     
     <div id="footer">
-  Generated on Sat May 15 23:52:59 2010 by 
+  Generated on Sun May 16 00:07:02 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.4 (ruby-1.9.1).
 </div>
