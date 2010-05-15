@@ -1,0 +1,84 @@
+#!/usr/bin/env ruby
+
+$:.unshift File.join(File.dirname(__FILE__), '..', 'lib')
+
+require 'json'
+require 'optparse'
+require 'fileutils'
+require 'request'
+
+# @author Patrick Hof
+class Http2Code
+
+  def parseopts(args)
+    options = {
+      :delimiter => "\r\n",
+      :template  => nil,
+      :header_bl => false,
+      :pretty    => true
+    }
+    OptionParser.new(args) do |opts|
+      opts.banner = "Usage: #{File.basename(__FILE__)} [options]"
+      opts.on("-n", "--newlines", 'Use \n as line delimiter when parsing the POST request instead of \r\n') do |n|
+        options[:delimiter] = "\n"
+      end
+      opts.on("-t", "--template TEMPLATE", 'Use template TEMPLATE') do |t|
+        options[:template] = t
+      end
+      opts.on("-b", "--header-blacklist", 'Use header blacklist to automatically remove common headers not needed') do
+        options[:header_bl] = true
+      end
+      opts.on("-p", "--no-pretty-printing", "Do not pretty print JSON data (may be required for some templates)") do
+        options[:pretty] = false
+      end
+      opts.on("-h", "--help", "Show this help") do
+        puts opts
+        puts
+        puts "Available Templates:"
+        puts "--------------------"
+        FileUtils.cd(File.join(File.dirname(__FILE__), '..', 'lib', 'templates')) do
+          puts Dir['*/*'].join("\n")
+        end
+        puts
+        puts "If no template is given, only the JSON data of the parsed HTTP request will be output."
+        puts
+        exit
+      end
+    end.parse!
+    options
+  end
+
+  def initialize
+    opts = parseopts(ARGV)
+    req = Request.new($stdin.read(), opts)
+    func = opts[:pretty] ? "pretty_generate" : "generate"
+    req_data = JSON.send(func, req.req)
+    header = JSON.send(func, req.header)
+    body = JSON.send(func, req.body)
+    if opts[:template]
+      begin
+        File.open(File.join(File.dirname(__FILE__), '..', 'lib', 'templates', opts[:template])) do |f|
+          s = f.read()
+          s.gsub!(/%REQ%/, req_data)
+          s.gsub!(/%HEADER%/, header)
+          s.gsub!(/%BODY%/, body)
+          puts s
+        end
+      rescue Exception => e
+        puts "ERROR: #{e}"
+        exit 1
+      end
+    else
+      puts "Request:"
+      puts req_data
+      puts
+      puts "Header:"
+      puts header
+      puts
+      puts "Body:"
+      puts body
+    end
+  end
+end
+
+Http2Code.new

@@ -1,0 +1,49 @@
+#!/usr/bin/env ruby
+#vim fileencoding=utf-8
+
+require 'typhoeus'
+require 'json'
+require 'cgi'
+
+req = JSON.load('
+%REQ%
+')
+
+header = JSON.load('
+%HEADER%
+')
+
+body = CGI.escape(JSON.load('
+%BODY%
+').inject([]) do |m, (k,a)|
+  a.each {|v| m << "#{k}=#{v}"}; m
+end.join("&"))
+
+hydra = Typhoeus::Hydra.new
+hydra.disable_memoization
+
+request = Typhoeus::Request.new(req["Url"],
+                                :body                           => body,
+                                :method                         => req["Verb"].downcase.to_sym,
+                                :headers                        => header
+                                #:params                        => {:field1 => "a field"})
+                                #:timeout                       => 100 # milliseconds
+                                #:cache_timeout                 => 60  # seconds
+                                #:follow_location               => true
+                                #:max_redirects                 => 20
+                                #:proxy                         => "localhost:8080"
+                                #:disable_ssl_peer_verification => true
+                               )
+
+request.on_complete do |response|
+  # Handle response:
+  #
+  # response.code         # http status code
+  # response.time         # time in seconds the request took
+  # response.headers      # the http headers
+  # response.headers_hash # http headers put into a hash
+  # response.body         # the response body
+end
+
+hydra.queue(request)
+hydra.run
