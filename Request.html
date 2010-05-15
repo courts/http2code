@@ -1,0 +1,697 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Class: Request</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (R)</a> &raquo; 
+    
+    
+    <span class="title">Request</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Request 
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Request</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/request.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>A class holding an HTTP request. The object can be initialized with a raw
+request string and will parse it into simple Hash structures.</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Author:</h3>
+<ul class="author">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>Patrick Hof</p></div>
+      
+    </li>
+  
+</ul>
+
+</div>
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="HEADER_BLACKLIST-constant" class="">HEADER_BLACKLIST =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Host</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Accept</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Accept-Language</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Accept-Encoding</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Accept-Charset</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Keep-Alive</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Cache-Control</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span></pre></dd>
+      
+    </dl>
+  
+
+
+  <h2>Instance Attribute Summary</h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#body-instance_method" title="#body (instance method)">- (Object) <strong>body</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the value of attribute body.</p></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#header-instance_method" title="#header (instance method)">- (Object) <strong>header</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the value of attribute header.</p></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#req-instance_method" title="#req (instance method)">- (Object) <strong>req</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the value of attribute req.</p></div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+  
+    <h2>Instance Method Summary</h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#body_to_hash-instance_method" title="#body_to_hash (instance method)">- (String) <strong>body_to_hash</strong>(data) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Parses the HTTP request body into a Hash structure.</p></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#header_to_hash-instance_method" title="#header_to_hash (instance method)">- (Hash) <strong>header_to_hash</strong>(data) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Parses the HTTP Request header into a Hash structure.</p></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Request) <strong>initialize</strong>(data, opts) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Creates a new Request object.</p></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><a href="" title="Request (class)">Request</a></tt>) <strong>initialize</strong>(data, opts) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Creates a new Request object</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <span class='name'>data</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The HTTP request to parse</p></div>
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    
+    
+    <h3>Options Hash (<tt>opts</tt>):</h3>
+    <ul class="option">
+      
+        <li>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="name">:delimiter</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>'\r\n'</tt>
+            
+          </span>
+          &mdash;<div class='inline'><p>The HTTP request's line delimiter</p></div>
+        </tr>
+      
+        <li>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="name">:header_bl</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>false</tt>
+            
+          </span>
+          &mdash;<div class='inline'><p>If the headers from the header blacklist should be automatically ignored</p></div>
+        </tr>
+      
+    </ul>
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+16
+17
+18
+19
+20
+21
+22</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/request.rb', line 16</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id data'>data</span><span class='comma'>,</span> <span class='id opts'>opts</span><span class='rparen'>)</span>
+  <span class='ivar'>@opts</span> <span class='op'>=</span> <span class='id opts'>opts</span>
+  <span class='id header'>header</span><span class='comma'>,</span> <span class='id body'>body</span> <span class='op'>=</span> <span class='id data'>data</span><span class='period'>.</span><span class='id split'>split</span><span class='lparen'>(</span><span class='ivar'>@opts</span><span class='lbracket'>[</span><span class='symbol'>:delimiter</span><span class='rbracket'>]</span><span class='op'>*</span><span class='int'>2</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id req'>req</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id header'>header</span> <span class='op'>=</span> <span class='id header_to_hash'>header_to_hash</span><span class='lparen'>(</span><span class='id header'>header</span><span class='rparen'>)</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id body'>body</span> <span class='op'>=</span> <span class='id body_to_hash'>body_to_hash</span><span class='lparen'>(</span><span class='id body'>body</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="body=-instance_method"></span>
+      <span id="body-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="body-instance_method">
+  
+    - (<tt>Object</tt>) <strong>body</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Returns the value of attribute body</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+7
+8
+9</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/request.rb', line 7</span>
+
+<span class='kw'>def</span> <span class='id body'>body</span>
+  <span class='ivar'>@body</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="header=-instance_method"></span>
+      <span id="header-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="header-instance_method">
+  
+    - (<tt>Object</tt>) <strong>header</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Returns the value of attribute header</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+7
+8
+9</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/request.rb', line 7</span>
+
+<span class='kw'>def</span> <span class='id header'>header</span>
+  <span class='ivar'>@header</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="req=-instance_method"></span>
+      <span id="req-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="req-instance_method">
+  
+    - (<tt>Object</tt>) <strong>req</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Returns the value of attribute req</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+7
+8
+9</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/request.rb', line 7</span>
+
+<span class='kw'>def</span> <span class='id req'>req</span>
+  <span class='ivar'>@req</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="body_to_hash-instance_method">
+  
+    - (<tt>String</tt>) <strong>body_to_hash</strong>(data) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Parses the HTTP request body into a Hash structure</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'></div></h4>
+      <pre class="example code"><span class='id body_to_hash'>body_to_hash</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>aa=bb&amp;cc=dd&amp;cc=ee</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; {&quot;aa&quot; =&gt; [&quot;bb&quot;], &quot;cc&quot; =&gt; [&quot;dd&quot;, &quot;ee&quot;]}</span></pre>
+    
+  </div>
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <span class='name'>data</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The raw request body</p></div>
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>A Hash structure holding the body values.</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/request.rb', line 47</span>
+
+<span class='kw'>def</span> <span class='id body_to_hash'>body_to_hash</span> <span class='id data'>data</span>
+  <span class='id body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='kw'>if</span> <span class='id data'>data</span>
+    <span class='id data'>data</span><span class='period'>.</span><span class='id split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&amp;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id map'>map</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id x'>x</span><span class='op'>|</span> <span class='id x'>x</span><span class='period'>.</span><span class='id split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>=</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id a'>a</span><span class='op'>|</span>
+      <span class='kw'>if</span> <span class='id a'>a</span><span class='period'>.</span><span class='id length'>length</span> <span class='op'>==</span> <span class='int'>1</span>
+        <span class='id body'>body</span><span class='lbracket'>[</span><span class='id a'>a</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span> <span class='kw'>unless</span> <span class='id body'>body</span><span class='period'>.</span><span class='id has_key?'>has_key?</span><span class='lparen'>(</span><span class='id a'>a</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+      <span class='kw'>elsif</span> <span class='id a'>a</span><span class='period'>.</span><span class='id length'>length</span> <span class='op'>==</span> <span class='int'>2</span>
+        <span class='kw'>if</span> <span class='id body'>body</span><span class='period'>.</span><span class='id has_key?'>has_key?</span><span class='lparen'>(</span><span class='id a'>a</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+          <span class='id body'>body</span><span class='lbracket'>[</span><span class='id a'>a</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rbracket'>]</span> <span class='op'>&lt;&lt;</span> <span class='id a'>a</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+        <span class='kw'>else</span>
+          <span class='id body'>body</span><span class='lbracket'>[</span><span class='id a'>a</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id a'>a</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rbracket'>]</span>
+        <span class='kw'>end</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='id body'>body</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="header_to_hash-instance_method">
+  
+    - (<tt>Hash</tt>) <strong>header_to_hash</strong>(data) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Parses the HTTP Request header into a Hash structure</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <span class='name'>data</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The raw request headers</p></div>
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>A Hash structure holding the header values</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/request.rb', line 28</span>
+
+<span class='kw'>def</span> <span class='id header_to_hash'>header_to_hash</span> <span class='id data'>data</span>
+  <span class='id header'>header</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='id data'>data</span> <span class='op'>=</span> <span class='id data'>data</span><span class='period'>.</span><span class='id split'>split</span><span class='lparen'>(</span><span class='ivar'>@opts</span><span class='lbracket'>[</span><span class='symbol'>:delimiter</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id req'>req</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Verb</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id req'>req</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Url</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id req'>req</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Version</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id data'>data</span><span class='period'>.</span><span class='id shift'>shift</span><span class='period'>.</span><span class='id split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span>
+  <span class='id data'>data</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id line'>line</span><span class='op'>|</span>
+    <span class='id k'>k</span><span class='comma'>,</span><span class='id v'>v</span> <span class='op'>=</span> <span class='id line'>line</span><span class='period'>.</span><span class='id split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>:</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='op'>!</span><span class='ivar'>@opts</span><span class='lbracket'>[</span><span class='symbol'>:header_bl</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='op'>!</span><span class='lparen'>(</span><span class='const'>HEADER_BLACKLIST</span><span class='period'>.</span><span class='id include?'>include?</span> <span class='id k'>k</span><span class='rparen'>)</span>
+      <span class='id header'>header</span><span class='lbracket'>[</span><span class='id k'>k</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id v'>v</span><span class='period'>.</span><span class='id lstrip'>lstrip</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='id header'>header</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat May 15 23:53:00 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.5.4 (ruby-1.9.1).
+</div>
+
+  </body>
+</html>
