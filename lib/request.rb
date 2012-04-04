@@ -44,10 +44,11 @@ class Request
   # @return [String] A Hash structure holding the body values.
   # @example
   #   body_to_hash('aa=bb&cc=dd&cc=ee') #=> {"aa" => ["bb"], "cc" => ["dd", "ee"]}
+  # @todo Implement different POST data types (e.g. multipar/form-data)
   def body_to_hash data
     body = {}
     if data
-      data.split("&").map {|x| x.split("=")}.each do |a|
+      data.chomp.split("&").map {|x| x.split("=")}.each do |a|
         if a.length == 1
           body[a[0]] = [] unless body.has_key?(a[0])
         elsif a.length == 2
