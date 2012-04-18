@@ -44,7 +44,7 @@ class Request
   # @return [String] A Hash structure holding the body values.
   # @example
   #   body_to_hash('aa=bb&cc=dd&cc=ee') #=> {"aa" => ["bb"], "cc" => ["dd", "ee"]}
-  # @todo Implement different POST data types (e.g. multipar/form-data)
+  # @todo Implement different POST data types (e.g. multipart/form-data)
   def body_to_hash data
     body = {}
     if data

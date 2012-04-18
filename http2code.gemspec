@@ -2,13 +2,12 @@
 
 Gem::Specification.new do |s|
   s.name = %q{http2code}
-  s.version = "0.0.2"
+  s.version = "0.0.3"
 
-  s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Patrick Hof"]
   s.date = %q{2012-04-04}
   s.email = %q{courts@offensivethinking.org}
-  s.files = ["bin/http2code", "lib/request.rb", "lib/templates/ruby/typhoeus", "lib/templates/ruby/curb"]
+  s.files = ["bin/http2code", "lib/request.rb", "lib/templates/ruby/typhoeus", "lib/templates/ruby/curb", "lib/templates/ruby/net_http"]
   s.executables = ["http2code"]
   s.homepage = %q{http://www.offensivethinking.org}
   s.require_paths = ["lib"]

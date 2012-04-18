@@ -19,17 +19,17 @@ body = CGI.escape(JSON.load('
   a.each {|v| m << "#{k}=#{v}"}; m
 end.join("&"))
 
-c = Curl::Easy.new
-
-# c.ssl_verify_host = false
-c.url = req["Url"]
-if req["Verb"] == "POST"
-  c.post_body = body
+c = Curl::Easy.new do |curl|
+  # curl.ssl_verify_host = false
+  curl.url = req["Url"]
+  curl.headers = header
+  if req["Verb"] == "POST"
+    curl.post_body = body
+  end
 end
-c.headers = header
 
 # Peform the request
-c.http(req["Verb"])
+c.http(req["Verb"].upcase)
 
 # What to do when the request succeeds with a 20x response
 c.on_success do |c|

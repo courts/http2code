@@ -1,0 +1,38 @@
+#!/usr/bin/env ruby
+
+require 'net/https'
+require 'json'
+require 'uri'
+require 'cgi'
+
+req = JSON.load('
+%REQ%
+')
+
+header = JSON.load('
+%HEADER%
+')
+
+body = CGI.escape(JSON.load('
+%BODY%
+').inject([]) do |m, (k,a)|
+  a.each {|v| m << "#{k}=#{v}"}; m
+end.join("&"))
+
+# proxy_addr = "localhost"
+# proxy_port = 8118
+
+uri = URI.parse(req["Url"])
+
+# http = Net::HTTP::Proxy(proxy_addr, proxy_port).new(url.host)
+http = Net::HTTP.new(uri.host)
+http.use_ssl = true if uri.scheme == "https"
+# http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+res = http.start do |web|
+  req = Net::HTTP::Options.new(uri.path)
+  # req.basic_auth "username", "password"
+  web.request(req)
+end
+
+puts "Response: (#{res.code})"
+print res.body
