@@ -1,11 +1,9 @@
 #!/usr/bin/env ruby
 
-$:.unshift File.join(File.dirname(__FILE__), '..', 'lib')
-
 require 'json'
 require 'optparse'
 require 'fileutils'
-require 'request'
+require 'http2code/request'
 
 # @author Patrick Hof
 class Http2Code
@@ -36,7 +34,7 @@ class Http2Code
         puts
         puts "Available Templates:"
         puts "--------------------"
-        FileUtils.cd(File.join(File.dirname(__FILE__), '..', 'lib', 'templates')) do
+        FileUtils.cd(File.join(File.dirname(__FILE__), '..', 'lib', 'http2code', 'templates')) do
           puts Dir['*/*'].join("\n")
         end
         puts
@@ -57,7 +55,7 @@ class Http2Code
     body = JSON.send(func, req.body)
     if opts[:template]
       begin
-        File.open(File.join(File.dirname(__FILE__), '..', 'lib', 'templates', opts[:template])) do |f|
+        File.open(File.join(File.dirname(__FILE__), '..', 'lib', 'http2code', 'templates', opts[:template])) do |f|
           s = f.read()
           s.gsub!(/%REQ%/, req_data)
           s.gsub!(/%HEADER%/, header)

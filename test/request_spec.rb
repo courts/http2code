@@ -1,5 +1,5 @@
 require 'bacon'
-require_relative '../lib/request.rb'
+require 'http2code/request.rb'
 
 describe Request do
   before do
