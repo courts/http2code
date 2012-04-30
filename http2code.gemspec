@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
   s.name = %q{http2code}
   s.version = "0.0.3"
   s.authors = ["Patrick Hof"]
-  s.date = %q{2012-04-20}
+  s.date = %q{2012-04-30}
   s.email = %q{courts@offensivethinking.org}
   s.files = %w(bin/http2code lib/http2code/request.rb lib/http2code/templates/ruby/typhoeus lib/http2code/templates/ruby/curb lib/http2code/templates/ruby/net_http)
   s.executables = ["http2code"]
