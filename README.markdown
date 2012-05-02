@@ -16,7 +16,6 @@ further information.
 
 Command Line Usage
 ------------------
-
     Usage: http2code [options]
         -n, --newlines                   Use \n as line delimiter when parsing the POST request instead of \r\n
         -t, --template TEMPLATE          Use template TEMPLATE
@@ -26,6 +25,8 @@ Command Line Usage
 
     Available Templates:
     --------------------
+    ruby/net_http
+    ruby/curb
     ruby/typhoeus
 
     If no template is given, only the JSON data of the parsed HTTP request will be output.
