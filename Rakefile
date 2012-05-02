@@ -13,5 +13,5 @@ end
 
 YARD::Rake::YardocTask.new do |t|
   t.files   = ['bin/http2code', 'lib/http2code/request.rb']
-  t.options = ['--main', 'README', '--markup', 'markdown']
+  t.options = ['--main', 'README.markdown', '--markup', 'markdown']
 end
