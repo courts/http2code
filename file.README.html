@@ -2,17 +2,27 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=utf-8" />
-<title>Documentation by YARD 0.5.4</title>
-<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
-<link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.7.5
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   relpath = '';
   if (relpath != '') relpath += '/';
 </script>
-<script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
-<script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
 
   </head>
   <body>
@@ -31,11 +41,14 @@
 </div>
 
       <div id="search">
-  <a id="class_list_link" href="#">Class List</a>
-  <a id="method_list_link" href="#">Method List</a>
-  <a id ="file_list_link" href="#">File List</a>
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
 </div>
-
       <div class="clear"></div>
     </div>
     
@@ -43,10 +56,10 @@
     
     <div id="content"><div id='filecontents'><h1>http2code</h1>
 
-<p>Author:      Patrick Hof <a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#x6f;&#58;&#99;&#x6f;&#x75;&#114;&#x74;&#115;&#x40;&#111;&#x66;&#x66;&#x65;&#110;&#x73;&#105;&#x76;&#101;&#x74;&#104;&#x69;&#x6e;&#107;&#x69;&#110;&#103;&#46;&#x6f;&#x72;&#x67;">&#99;&#111;&#117;&#x72;&#x74;&#x73;&#x40;&#111;&#x66;&#x66;&#x65;&#110;&#115;&#105;&#118;&#x65;&#116;&#104;&#x69;&#x6e;&#107;&#x69;&#x6e;&#103;&#46;&#x6f;&#114;&#x67;</a><br/>
+<p>Author:      Patrick Hof <a href="mailto:courts@offensivethinking.org">courts@offensivethinking.org</a><br>
 License:     <a href="http://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0 1.0 Universal License</a></p>
 
-<p>Download:    git clone git@github.com:courts/http2code.git<br/>
+<p>Download:    git clone <a href="mailto:git@github.com">git@github.com</a>:courts/http2code.git<br>
 YARD docs:   <a href="http://courts.github.com/http2code">http://courts.github.com/http2code</a></p>
 
 <p>http2code is simple templating system for translating a raw HTTP GET or POST
@@ -58,7 +71,7 @@ further information.</p>
 
 <h2>Command Line Usage</h2>
 
-<pre class="code">Usage: http2code [options]
+<pre class="code ruby"><code>Usage: http2code [options]
     -n, --newlines                   Use \n as line delimiter when parsing the POST request instead of \r\n
     -t, --template TEMPLATE          Use template TEMPLATE
     -b, --header-blacklist           Use header blacklist to automatically remove common headers not needed
@@ -67,30 +80,33 @@ further information.</p>
 
 Available Templates:
 --------------------
+ruby/net_http
+ruby/curb
 ruby/typhoeus
 
 If no template is given, only the JSON data of the parsed HTTP request will be output.
-</pre>
+</code></pre>
 
 <h2>Examples</h2>
 
 <p>With an HTTP GET or POST request saved in req.txt:</p>
 
-<pre class="code">http2code -n -t ruby/typhoeus &lt; req.txt
-</pre>
+<pre class="code ruby"><code>http2code -n -t ruby/typhoeus &lt; req.txt
+</code></pre>
 
 <h2>RubyGems</h2>
 
 <p>A gemspec file is included, so you can build and install http2code as a gem with:</p>
 
-<pre class="code"><span class='id gem'>gem</span> <span class='id build'>build</span> <span class='id http2code'>http2code</span><span class='period'>.</span><span class='id gemspec'>gemspec</span>
-<span class='id gem'>gem</span> <span class='id install'>install</span> <span class='id http2code'>http2code</span><span class='op'>-</span><span class='id x'>x</span><span class='period'>.</span><span class='id x'>x</span><span class='period'>.</span><span class='id x'>x</span><span class='period'>.</span><span class='id gem'>gem</span>
-</pre></div></div>
+<pre class="code ruby"><code><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_build'>build</span> <span class='id identifier rubyid_http2code'>http2code</span><span class='period'>.</span><span class='id identifier rubyid_gemspec'>gemspec</span>
+<span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_http2code'>http2code</span><span class='op'>-</span><span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_gem'>gem</span>
+</code></pre>
+</div></div>
     
     <div id="footer">
-  Generated on Sun May 16 00:07:02 2010 by 
-  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.4 (ruby-1.9.1).
+  Generated on Wed May  2 21:13:06 2012 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.5 (ruby-1.9.3).
 </div>
 
   </body>
