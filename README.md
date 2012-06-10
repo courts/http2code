@@ -4,7 +4,7 @@ http2code
 Author:      Patrick Hof <courts@offensivethinking.org>  
 License:     [CC0 1.0 Universal License](http://creativecommons.org/publicdomain/zero/1.0/legalcode)
 
-Download:    git clone git@github.com:courts/http2code.git  
+Download:    git clone http://github.com/courts/http2code.git  
 YARD docs:   [http://courts.github.com/http2code](http://courts.github.com/http2code)
 
 http2code is simple templating system for translating a raw HTTP GET or POST
